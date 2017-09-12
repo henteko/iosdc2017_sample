@@ -2,11 +2,9 @@
 
 https://iosdc.jp/2017/node/1550
 
-## 開発
+## How to use
 
 ```
-$ swift build
-$ .build/debug/iosdc2017_sample # 実行
-
-$ swift package generate-xcodeproj # XCodeプロジェクト生成
+$ bundle install
+$ bundle exec ruby provisioning_profile_analyze.rb
 ```
