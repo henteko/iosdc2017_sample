@@ -19,6 +19,7 @@ def codesigning_identity(profile)
     certificate_str = cert.read
     certificate =  OpenSSL::X509::Certificate.new certificate_str
     id = OpenSSL::Digest::SHA1.new(certificate.to_der).to_s.upcase!
+    # like a `$ security find-identity -v -p codesigning`
     return "#{id} \"#{certificate.subject.to_a[1][1]}\""
   end
 end
