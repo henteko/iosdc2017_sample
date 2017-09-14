@@ -33,3 +33,4 @@ puts "Application identifier: #{profile['Entitlements']['application-identifier'
 puts "Team name: #{profile['TeamName']}"
 puts "Codesigning identity : #{codesigning_identity(profile)}"
 puts "Adhoc? : #{adhoc?(profile)}"
+puts "UDID list: #{profile['ProvisionedDevices']}" if adhoc?(profile)
