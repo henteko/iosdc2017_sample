@@ -1,12 +1,11 @@
 require 'openssl'
 require 'plist'
 
-def profile_to_plist(profile_path)
+def profile_to_hash(profile_path)
   File.open(profile_path) do |profile|
     asn1 = OpenSSL::ASN1.decode(profile.read)
     plist_str = asn1.value[1].value[0].value[2].value[1].value[0].value
-    plist = Plist.parse_xml plist_str.force_encoding('UTF-8')
-    return plist
+    return Plist.parse_xml plist_str.force_encoding('UTF-8')
   end
 end
 
@@ -25,7 +24,7 @@ def codesigning_identity(profile)
 end
 
 profile_path = ARGV[0]
-profile = profile_to_plist(profile_path)
+profile = profile_to_hash(profile_path)
 
 puts "Provisioning Profile path: #{profile_path}"
 puts "UUID: #{profile['UUID']}"
