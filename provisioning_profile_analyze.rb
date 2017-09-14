@@ -10,7 +10,7 @@ def profile_to_hash(profile_path)
 end
 
 def adhoc?(profile)
-  !profile['Entitlements']['get-task-allow'] && profile['ProvisionsAllDevices'].nil?
+  profile['ProvisionsAllDevices'].nil?
 end
 
 def codesigning_identity(profile)
